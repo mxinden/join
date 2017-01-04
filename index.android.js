@@ -11,25 +11,21 @@ import {
   Text,
   View,
   ScrollView,
+  Navigator
 } from 'react-native';
 
-import { Container, Content } from 'native-base';
 
-import Footer from './src/components/footer.js';
-import TitleBar from './src/components/title-bar.js';
+import GroupList from './src/scenes/group-list.js';
 
 
 export default class join extends Component {
   render() {
     return (
-      <Container>
-        {TitleBar()}
-        <Content>
-        </Content>
-        <TitleBar />
-        <ScrollView />
-        {Footer()}
-      </Container>
+      <Navigator
+        initialRoute={{ title: 'Awesome Scene', index: 0 }}
+        renderScene={(route, navigator) => GroupList() }
+        style={{ flex: 1}}
+        />
     );
   }
 }
