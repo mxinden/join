@@ -7,13 +7,7 @@ import joinTheme from '../../Themes/join-theme.js';
 
 const EventList = (props) => {
   return (
-    <Container theme={joinTheme} >
-      {TitleBar({ navigator: props.navigator, route: props.route })}
-      <Content>
-        <Text> Event List </Text>
-      </Content>
-      {Footer({ navigator: props.navigator, route: props.route } )}
-    </Container>
+    <Text> Event List </Text>
   );
 };
 

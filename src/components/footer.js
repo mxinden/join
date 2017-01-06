@@ -4,7 +4,6 @@ import { Container, Content, Footer, FooterTab, Button, Badge } from 'native-bas
 import routes from '../lib/routes.js';
 
 const FooterComponent = (props) => {
-  console.log(routes.getTopLevel());
   return (
     <Footer>
       <FooterTab>
