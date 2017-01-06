@@ -21,13 +21,12 @@ import joinTheme from './Themes/join-theme.js';
 import routes from './src/lib/routes.js';
 
 const renderScene = (route, navigator) => {
-  console.log('render scene');
   const selectedRoute = routes.find((iteratedRoute) => iteratedRoute.name === route.name)
   return (
     <Container theme={joinTheme} >
-      {TitleBar({ navigator, route: selectedRoute })}
+      {TitleBar({ navigator, route: selectedRoute, details: route.details })}
       <Content>
-        <selectedRoute.component route={selectedRoute} navigator={navigator} />
+        <selectedRoute.component route={selectedRoute} navigator={navigator} details={route.details} />
       </Content>
       {Footer({ navigator, route: selectedRoute })}
     </Container>

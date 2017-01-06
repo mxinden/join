@@ -10,7 +10,7 @@ const FooterComponent = (props) => {
         {routes.getTopLevel().map(route => (
           <Button
             key={route.name}
-            onPress={() => props.navigator.replace({ name: route.name })}
+            onPress={() => props.navigator.resetTo({ name: route.name })}
             active={route.name === props.route.name}
           >
             {route.title}

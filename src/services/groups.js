@@ -7,4 +7,6 @@ const sampleGroups = [
 
 groups.get = () => sampleGroups;
 
+groups.getById = id => sampleGroups.find(group => group.id === id);
+
 export default groups;

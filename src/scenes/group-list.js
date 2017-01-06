@@ -10,7 +10,7 @@ const GroupList = (props) => {
       {GroupsService.get().map(group => (
         <ListItem
           key={group.id}
-          onPress={() => props.navigator.push({ name: 'groupDetails' })}
+          onPress={() => props.navigator.push({ name: 'groupDetails', details: { groupId: group.id } })}
         >
           <Text>{group.name}</Text>
         </ListItem>
