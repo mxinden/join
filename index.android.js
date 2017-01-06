@@ -14,16 +14,22 @@ import {
   Navigator
 } from 'react-native';
 
+import routes from './src/lib/routes.js';
 
-import GroupList from './src/scenes/group-list.js';
-
+const renderScene = (route, navigator) => {
+  const selectedRoute = routes.find((iteratedRoute) => iteratedRoute.name === route.name)
+  return selectedRoute.component({
+    route: selectedRoute,
+    navigator,
+  });
+};
 
 export default class join extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ title: 'Awesome Scene', index: 0 }}
-        renderScene={(route, navigator) => GroupList() }
+        initialRoute={{ name: 'group-list', index: 0 }}
+        renderScene={renderScene}
         style={{ flex: 1}}
         />
     );
