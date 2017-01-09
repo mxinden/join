@@ -7,13 +7,13 @@ import joinTheme from '../../Themes/join-theme.js';
 
 const EventList = (props) => {
   return (
-    <Text> Event List </Text>
+    <View style={{ paddingTop: 56 }} >
+      <Text> Event List </Text>
+    </View>
   );
 };
 
 EventList.propTypes = {
-  navigator: PropTypes.object.isRequired,
-  route: PropTypes.object.isRequired,
 };
 
 export default EventList;
