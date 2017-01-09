@@ -10,6 +10,8 @@ import GroupList from './scenes/group-list-container.js';
 import EventList from './scenes/event-list.js';
 import GroupDetails from './scenes/group-details-container.js';
 import groupService from './services/groups.js';
+import usersService from './services/users.js';
+import Profile from './scenes/profile-container.js';
 
 import joinApp from './reducers';
 import AddGroupButton from './components/add-group-button.js';
@@ -53,12 +55,24 @@ const App = () => (
         >
           <Scene key="eventList" component={EventList} title="Event List" />
         </Scene>
+        <Scene
+          key="profileTab"
+          icon={TabIcon}
+          title="Profile"
+        >
+          <Scene key="profile" component={Profile} title="Profile" />
+        </Scene>
       </Scene>
     </Scene>
   </Router>
 );
 
-const store = createStore(joinApp, { groups: groupService.get() });
+const store = createStore(joinApp, {
+  groups: groupService.get(),
+  users: {
+    current: usersService.getCurrentUser(),
+  },
+});
 
 export default () => (
   <Provider store={store}>

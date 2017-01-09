@@ -1,5 +1,3 @@
-import groupsService from '../services/groups.js';
-
 const group = (state = {}, action) => {
   switch (action.type) {
     case 'CREATE_GROUP':
