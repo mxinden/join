@@ -1,9 +1,9 @@
 const groups = {};
 
 const sampleGroups = [
-  { id: '2', name: 'Pre group' },
-  { id: '0', name: 'First awesome group' },
-  { id: '1', name: 'Second awesome group' },
+  { id: '1808934', name: 'Pre group' },
+  { id: '0183208', name: 'First awesome group' },
+  { id: '1032405', name: 'Second awesome group' },
 ];
 
 groups.get = () => sampleGroups;
