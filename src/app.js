@@ -8,10 +8,11 @@ import thunk from 'redux-thunk';
 
 import { Scene, Router } from 'react-native-router-flux';
 import GroupList from './scenes/group-list-container.js';
-import EventList from './scenes/event-list.js';
+import EventList from './scenes/event/event-scene-container.js';
 import GroupDetails from './scenes/group-details-container.js';
 import groupService from './services/groups.js';
 import usersService from './services/users.js';
+import eventsService from './services/events.js';
 import Profile from './scenes/profile-container.js';
 
 import joinApp from './reducers';
@@ -73,6 +74,7 @@ const store = createStore(joinApp, {
   users: {
     current: usersService.getCurrentUser(),
   },
+  events: eventsService.get(),
 }, applyMiddleware(thunk));
 
 export default () => (

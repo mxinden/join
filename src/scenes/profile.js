@@ -10,6 +10,11 @@ const Profile = ({ currentUser }) => (
           <Input inlineLabel label="Name" placeholder={currentUser.name} />
         </InputGroup>
       </ListItem>
+      <ListItem>
+        <InputGroup>
+          <Input inlineLabel label="UserId" placeholder={currentUser.id} />
+        </InputGroup>
+      </ListItem>
     </List>
   </View>
 );

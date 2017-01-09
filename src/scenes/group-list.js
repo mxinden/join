@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Text, View } from 'react-native';
-import { List, ListItem } from 'native-base';
+import { View } from 'react-native';
+import { List, ListItem, Text } from 'native-base';
 
 const GroupList = ({ groups, selectGroup }) => (
   <View style={{ paddingTop: 56 }} >
