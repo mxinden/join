@@ -3,14 +3,20 @@ import { Button } from 'native-base';
 import { connect } from 'react-redux';
 import { createGroup } from '../actions/index.js';
 
-const AddGroupButton = ({ dispatch }) => (
+const AddGroupButton = ({ handlePush }) => (
   <Button
-    onPress={() => dispatch(createGroup())}
+    onPress={handlePush}
   >Add</Button>
 );
 
 AddGroupButton.propTypes = {
-  dispatch: React.PropTypes.func.isRequired,
+  handlePush: React.PropTypes.func.isRequired,
 };
 
-export default connect()(AddGroupButton);
+const handlePush = () => {
+  return (dispatch, getState) => {
+    dispatch(createGroup(getState().users.current.id));
+  };
+};
+
+export default connect(() => ({}), { handlePush })(AddGroupButton);

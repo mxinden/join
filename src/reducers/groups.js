@@ -4,6 +4,7 @@ const group = (state = {}, action) => {
       return {
         id: action.id,
         name: 'New Group',
+        userId: action.userId,
       }
     default:
       return state

@@ -3,7 +3,8 @@ import {
   Text,
 } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import { Scene, Router } from 'react-native-router-flux';
 import GroupList from './scenes/group-list-container.js';
@@ -72,7 +73,7 @@ const store = createStore(joinApp, {
   users: {
     current: usersService.getCurrentUser(),
   },
-});
+}, applyMiddleware(thunk));
 
 export default () => (
   <Provider store={store}>
