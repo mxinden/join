@@ -9,6 +9,7 @@ import { Scene, Router } from 'react-native-router-flux';
 import GroupList from './scenes/group-list-container.js';
 import EventList from './scenes/event-list.js';
 import GroupDetails from './scenes/group-details-container.js';
+import groupService from './services/groups.js';
 
 import joinApp from './reducers';
 import AddGroupButton from './components/add-group-button.js';
@@ -57,7 +58,7 @@ const App = () => (
   </Router>
 );
 
-const store = createStore(joinApp);
+const store = createStore(joinApp, { groups: groupService.get() });
 
 export default () => (
   <Provider store={store}>
