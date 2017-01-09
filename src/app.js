@@ -18,6 +18,10 @@ import GroupList from './scenes/group-list.js';
 import EventList from './scenes/event-list.js';
 import GroupDetails from './scenes/group-details.js';
 
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import joinApp from './reducers'
+
 
 
 const TabIcon = (props) => (
@@ -28,10 +32,8 @@ const TabIcon = (props) => (
   </Text>
 );
 
-
-export default class join extends Component {
+class App extends Component {
   render() {
-    console.log(Navigator.NavigationBar.Styles.General.NavBarHeight);
     return (
       <Router
       >
@@ -59,3 +61,11 @@ export default class join extends Component {
     );
   }
 }
+
+const store = createStore(joinApp);
+
+export default () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

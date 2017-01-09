@@ -1,15 +1,15 @@
-import React, { PropTypes } from 'react';
-import { Text, View, Navigator } from 'react-native';
-import { List, ListItem, Container, Content } from 'native-base';
-import GroupsService from '../services/groups.js';
-import joinTheme from '../../Themes/join-theme.js';
+import React from 'react';
+import { Text, View } from 'react-native';
+import { List, ListItem, Content } from 'native-base';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import GroupsService from '../services/groups.js';
 
-const GroupList = (props) => {
+const GroupList = ({ groups }) => {
   return (
     <View style={{ paddingTop: 56 }} >
       <List>
-        {GroupsService.get().map(group => (
+        {groups.map(group => (
           <ListItem
             key={group.id}
             onPress={() => Actions.groupDetails({ groupId: group.id })}
@@ -23,7 +23,9 @@ const GroupList = (props) => {
   );
 };
 
-GroupList.propTypes = {
-};
+const mapStateToProps = state => ({ groups: state.groups });
 
-export default GroupList;
+const mapDispatchToProps = () => ({ });
+
+export default connect(mapStateToProps, mapDispatchToProps)(GroupList);
+
