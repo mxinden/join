@@ -14,7 +14,7 @@ import joinTheme from './../Themes/join-theme.js';
 
 import routes from './lib/routes.js';
 import { Scene, Router, TabBar, Modal, Schema, Actions, Reducer, ActionConst } from 'react-native-router-flux';
-import GroupList from './scenes/group-list.js';
+import GroupList from './scenes/group-list-container.js';
 import EventList from './scenes/event-list.js';
 import GroupDetails from './scenes/group-details.js';
 
