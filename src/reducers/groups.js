@@ -18,10 +18,20 @@ const groups = (state = [], action) => {
       return [
         ...state,
         group(undefined, action)
-      ]
+      ];
     default:
       return groupsService.get();
   }
-}
+};
 
-export default groups
+const selectedGroup = (state = null, action) => {
+  console.log(action);
+  switch (action.type) {
+    case 'SELECT_GROUP':
+      return action.groupId;
+    default:
+      return state;
+  }
+};
+
+export { groups, selectedGroup };

@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import { Text, View } from 'react-native';
 
-const GroupDetails = (props) => (
+const GroupDetails = ({ group }) => (
   <View style={{ paddingTop: 56 }} >
-    <Text> Group details </Text>
-    <Text> {props.groupId} </Text>
+    <Text>{group.id}</Text>
+    <Text>{group.name}</Text>
   </View>
 );
 

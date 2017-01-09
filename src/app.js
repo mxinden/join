@@ -8,7 +8,7 @@ import { createStore } from 'redux';
 import { Scene, Router } from 'react-native-router-flux';
 import GroupList from './scenes/group-list-container.js';
 import EventList from './scenes/event-list.js';
-import GroupDetails from './scenes/group-details.js';
+import GroupDetails from './scenes/group-details-container.js';
 
 import joinApp from './reducers';
 import AddGroupButton from './components/add-group-button.js';
