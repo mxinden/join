@@ -1,30 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
   Text,
-  View,
-  ScrollView,
-  Navigator
 } from 'react-native';
-import Footer from './components/footer.js';
-import TitleBar from './components/title-bar.js';
-import { List, ListItem, Container, Content } from 'native-base';
-import joinTheme from './../Themes/join-theme.js';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-import routes from './lib/routes.js';
-import { Scene, Router, TabBar, Modal, Schema, Actions, Reducer, ActionConst } from 'react-native-router-flux';
+import { Scene, Router } from 'react-native-router-flux';
 import GroupList from './scenes/group-list-container.js';
 import EventList from './scenes/event-list.js';
 import GroupDetails from './scenes/group-details.js';
 
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import joinApp from './reducers'
+import joinApp from './reducers';
+import AddGroupButton from './components/add-group-button.js';
 
 
-
-const TabIcon = (props) => (
+const TabIcon = props => (
   <Text
     style={{ color: props.selected ? 'red' : 'black' }}
   >
@@ -32,35 +22,40 @@ const TabIcon = (props) => (
   </Text>
 );
 
-class App extends Component {
-  render() {
-    return (
-      <Router
-      >
-        <Scene key="root"
+TabIcon.propTypes = {
+  selected: React.PropTypes.bool,
+  title: React.PropTypes.string.isRequired,
+};
+
+const App = () => (
+  <Router>
+    <Scene key="root">
+      <Scene key="main" tabs>
+        <Scene
+          key="groups"
+          icon={TabIcon}
+          title="Groups"
         >
-          <Scene key="main" tabs={true}
-          >
-            <Scene key="groups" 
-               icon={TabIcon}
-               title="Groups"
-             >
-              <Scene key="groupList" component={GroupList} title="Group List" initial />
-              <Scene key="groupDetails" component={GroupDetails} title="Group Details" />
-            </Scene>
-            <Scene
-              key="events"
-              icon={TabIcon}
-              title="Events"
-            >
-              <Scene key="eventList" component={EventList} title="Event List" />
-            </Scene>
-          </Scene>
+          <Scene
+            key="groupList"
+            component={GroupList}
+            title="Group List"
+            initial
+            renderRightButton={() => <AddGroupButton />}
+          />
+          <Scene key="groupDetails" component={GroupDetails} title="Group Details" />
         </Scene>
-      </Router>
-    );
-  }
-}
+        <Scene
+          key="events"
+          icon={TabIcon}
+          title="Events"
+        >
+          <Scene key="eventList" component={EventList} title="Event List" />
+        </Scene>
+      </Scene>
+    </Scene>
+  </Router>
+);
 
 const store = createStore(joinApp);
 

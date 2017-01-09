@@ -2,11 +2,10 @@ import groupsService from '../services/groups.js';
 
 const group = (state = {}, action) => {
   switch (action.type) {
-    case 'ADD_GROUP':
+    case 'CREATE_GROUP':
       return {
         id: action.id,
-        text: action.text,
-        completed: false
+        name: 'New Group',
       }
     default:
       return state
@@ -15,7 +14,7 @@ const group = (state = {}, action) => {
 
 const groups = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_GROUP':
+    case 'CREATE_GROUP':
       return [
         ...state,
         group(undefined, action)
