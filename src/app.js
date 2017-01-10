@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 
 import { Scene, Router } from 'react-native-router-flux';
 import GroupList from './scenes/group-list-container.js';
-import EventList from './scenes/event/event-scene-container.js';
+import EventScene from './scenes/event/event-scene-container.js';
 import GroupDetails from './scenes/group-details-container.js';
 import groupService from './services/groups.js';
 import usersService from './services/users.js';
@@ -55,7 +55,7 @@ const App = () => (
           icon={TabIcon}
           title="Events"
         >
-          <Scene key="eventList" component={EventList} title="Event List" />
+          <Scene key="eventList" component={EventScene} title="Event List" />
         </Scene>
         <Scene
           key="profileTab"
@@ -73,6 +73,7 @@ const store = createStore(joinApp, {
   groups: groupService.get(),
   users: {
     current: usersService.getCurrentUser(),
+    all: usersService.get(),
   },
   events: eventsService.get(),
 }, applyMiddleware(thunk));
