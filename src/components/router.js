@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Text } from 'react-native';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import GroupList from './../scenes/group/group-list-container.js';
@@ -67,5 +67,9 @@ const RouterComponent = props => (
     </Scene>
   </Router>
 );
+
+RouterComponent.propTypes = {
+  handleSaveGroup: PropTypes.func.isRequired,
+};
 
 export default RouterComponent;
