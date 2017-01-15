@@ -6,18 +6,17 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import { Scene, Router } from 'react-native-router-flux';
-import GroupList from './scenes/group-list-container.js';
+import { Scene, Router, Actions } from 'react-native-router-flux';
+import GroupList from './scenes/group/group-list-container.js';
 import EventScene from './scenes/event/event-scene-container.js';
-import GroupDetails from './scenes/group-details-container.js';
+import GroupDetails from './scenes/group/group-details-container.js';
 import groupService from './services/groups.js';
 import usersService from './services/users.js';
 import eventsService from './services/events.js';
 import Profile from './scenes/profile-container.js';
+import CreateGroup from './scenes/group/create-group-container.js';
 
 import joinApp from './reducers';
-import AddGroupButton from './components/add-group-button.js';
-
 
 const TabIcon = props => (
   <Text
@@ -46,9 +45,11 @@ const App = () => (
             component={GroupList}
             title="Group List"
             initial
-            renderRightButton={() => <AddGroupButton />}
+            getRightTitle={() => 'Create'}
+            onRight={() => Actions.createGroup()}
           />
           <Scene key="groupDetails" component={GroupDetails} title="Group Details" />
+          <Scene key="createGroup" component={CreateGroup} title="Create Group" />
         </Scene>
         <Scene
           key="events"

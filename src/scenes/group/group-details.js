@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { View } from 'react-native';
-import EventList from '../components/event-list.js';
+import EventList from '../../components/event-list.js';
 import { Text, H1, Card, CardItem, Content, Container, Icon, InputGroup } from 'native-base';
 
 const GroupDetails = ({ group, owner }) => (
