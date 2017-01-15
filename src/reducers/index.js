@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
-import { groups, selectedGroup } from './groups';
+import { groups } from './groups';
 import { users } from './users.js';
 import { events } from './events.js';
 
 const joinApp = combineReducers({
   groups,
-  selectedGroup,
   users,
   events,
 });

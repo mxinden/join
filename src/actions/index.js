@@ -3,6 +3,11 @@ let nextId = 0;
 export const createGroup = (userId) => ({
   type: 'CREATE_GROUP',
   id: (nextId++).toString(),
+});
+
+export const saveNewGroup = (userId, name) => ({
+  type: 'SAVE_NEW_GROUP', 
+  name,
   userId,
 });
 

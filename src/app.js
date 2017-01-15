@@ -15,6 +15,7 @@ import usersService from './services/users.js';
 import eventsService from './services/events.js';
 import Profile from './scenes/profile-container.js';
 import CreateGroup from './scenes/group/create-group-container.js';
+import { createGroup } from './actions/index.js';
 
 import joinApp from './reducers';
 
@@ -30,6 +31,17 @@ TabIcon.propTypes = {
   selected: React.PropTypes.bool,
   title: React.PropTypes.string.isRequired,
 };
+
+const store = createStore(joinApp, {
+  groups: {
+    all: groupService.get(),
+  },
+  users: {
+    current: usersService.getCurrentUser(),
+    all: usersService.get(),
+  },
+  events: eventsService.get(),
+}, applyMiddleware(thunk));
 
 const App = () => (
   <Router>
@@ -49,7 +61,16 @@ const App = () => (
             onRight={() => Actions.createGroup()}
           />
           <Scene key="groupDetails" component={GroupDetails} title="Group Details" />
-          <Scene key="createGroup" component={CreateGroup} title="Create Group" />
+          <Scene
+            key="createGroup"
+            component={CreateGroup}
+            title="Create Group"
+            getRightTitle={() => 'Save'}
+            onRight={() => {
+              store.dispatch(createGroup());
+              Actions.groupList({ type: 'back' });
+            }}
+          />
         </Scene>
         <Scene
           key="events"
@@ -69,15 +90,6 @@ const App = () => (
     </Scene>
   </Router>
 );
-
-const store = createStore(joinApp, {
-  groups: groupService.get(),
-  users: {
-    current: usersService.getCurrentUser(),
-    all: usersService.get(),
-  },
-  events: eventsService.get(),
-}, applyMiddleware(thunk));
 
 export default () => (
   <Provider store={store}>
