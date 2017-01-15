@@ -1,11 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
-import { List, ListItem, Text } from 'native-base';
+import { List, ListItem, Text, Icon } from 'native-base';
 
 const EventList = ({ events }) => (
     <List>
       {events.map(event => (
-        <ListItem key={event.id} >
+        <ListItem key={event.id} iconLeft >
+          <Icon name="ios-calendar-outline" />
           <Text>
             {event.name}
           </Text>
