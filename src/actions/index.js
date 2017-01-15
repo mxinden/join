@@ -15,3 +15,9 @@ export const selectGroup = groupId => ({
   type: 'SELECT_GROUP',
   groupId,
 });
+
+export const createEvent = name => ({
+  type: 'CREATE_EVENT',
+  id: (nextId++).toString(),
+  name,
+});

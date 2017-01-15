@@ -1,5 +1,4 @@
 const group = (newGroup, action) => {
-  console.log(newGroup);
   switch (action.type) {
     case 'CREATE_GROUP':
       return {
@@ -12,7 +11,6 @@ const group = (newGroup, action) => {
 }
 
 const groups = (state = {}, action) => {
-  console.log(action);
   switch (action.type) {
     case 'CREATE_GROUP':
       return {

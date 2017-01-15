@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
+import { Actions } from 'react-native-router-flux';
 import { View } from 'react-native';
 import EventList from '../../components/event-list.js';
-import { Text, H1, Card, CardItem, Content, Container, Icon, InputGroup, List, ListItem, Input, Header } from 'native-base';
+import { Text, H1, Container, Icon, List, ListItem, Button, Content } from 'native-base';
 
 const GroupDetails = ({ group, owner }) => (
   <Container style={{ paddingTop: 56 }} >
@@ -12,9 +13,15 @@ const GroupDetails = ({ group, owner }) => (
           <Text>{owner.name}</Text>
         </ListItem>
       </List>
-      <View style={{paddingTop: 20 }}>
+      <View style={{ paddingTop: 20 }}>
         <H1>Events</H1>
         <EventList events={group.events} />
+        <Button
+          block
+          onPress={() => Actions.createEvent()}
+        >
+          Create Event
+        </Button>
       </View>
     </Content>
   </Container>

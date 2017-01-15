@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import GroupList from './../scenes/group/group-list-container.js';
 import EventScene from './../scenes/event/event-scene-container.js';
+import CreateEvent from './../scenes/event/create-event-container.js';
 import GroupDetails from './../scenes/group/group-details-container.js';
 import Profile from './../scenes/profile-container.js';
 import CreateGroup from './../scenes/group/create-group-container.js';
@@ -55,6 +56,7 @@ const RouterComponent = props => (
           title="Events"
         >
           <Scene key="eventList" component={EventScene} title="Event List" />
+          <Scene key="createEvent" component={CreateEvent} title="Create Event" />
         </Scene>
         <Scene
           key="profileTab"
