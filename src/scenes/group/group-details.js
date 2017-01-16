@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { View } from 'react-native';
-import EventList from '../../components/event-list.js';
 import { Text, H1, Container, Icon, List, ListItem, Button, Content } from 'native-base';
+import EventList from '../../components/event-list.js';
+import PaddedView from '../../components/padded-view.js';
 
 const GroupDetails = ({ group, creator, events }) => (
   <Container style={{ paddingTop: 56 }} >
@@ -16,12 +17,14 @@ const GroupDetails = ({ group, creator, events }) => (
       <View style={{ paddingTop: 20 }}>
         <H1>Events</H1>
         <EventList events={events} />
-        <Button
-          block
-          onPress={() => Actions.createEvent({ type: 'push', creator, group })}
-        >
-          Create Event
-        </Button>
+        <PaddedView>
+          <Button
+            block
+            onPress={() => Actions.createEvent({ type: 'push', creator, group })}
+          >
+            Create Event
+          </Button>
+        </PaddedView>
       </View>
     </Content>
   </Container>

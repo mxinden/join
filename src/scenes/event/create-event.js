@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Container, Content, List, ListItem, InputGroup, Input, Button, Icon, Text } from 'native-base';
 import DatePicker from 'react-native-datepicker';
+import PaddedView from '../../components/padded-view.js';
 
 class CreateEvent extends React.Component {
   constructor(props) {
@@ -52,12 +53,14 @@ class CreateEvent extends React.Component {
               </InputGroup>
             </ListItem>
           </List>
-          <Button
-            block
-            onPress={() => this.props.handleCreate(this.state)}
-          >
-            Create
-          </Button>
+          <PaddedView>
+            <Button
+              block
+              onPress={() => this.props.handleCreate(this.state)}
+            >
+              Create
+            </Button>
+          </PaddedView>
         </Content>
       </Container>
     );

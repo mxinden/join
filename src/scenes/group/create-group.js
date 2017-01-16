@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Button, Text, Container, Content, List, ListItem, InputGroup, Input } from 'native-base';
+import PaddedView from '../../components/padded-view.js';
 
 class CreateGroup extends React.Component {
   constructor () {
@@ -20,12 +21,14 @@ class CreateGroup extends React.Component {
               </InputGroup>
             </ListItem>
           </List>
-          <Button
-            block
-            onPress={() => this.props.handleCreate({ name: this.state.name })}
-          >
-            Save
-          </Button>
+          <PaddedView>
+            <Button
+              block
+              onPress={() => this.props.handleCreate({ name: this.state.name })}
+            >
+              Save
+            </Button>
+          </PaddedView>
         </Content>
       </Container>
     );
