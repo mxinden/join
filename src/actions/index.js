@@ -12,6 +12,12 @@ export const selectGroup = groupId => ({
   groupId,
 });
 
+export const joinGroup = ({ userId, groupId }) => ({
+  type: 'JOIN_GROUP',
+  groupId,
+  userId,
+});
+
 export const createEvent = ({ name, userId, groupId, date, description }) => ({
   type: 'CREATE_EVENT',
   id: (nextId++).toString(),
