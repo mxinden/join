@@ -15,7 +15,7 @@ const EventList = ({ events }) => (
           {event.name}
         </Text>
         <Text>
-          {event.date.toDateString()}
+          {event.date}
         </Text>
       </ListItem>
       ))

@@ -18,7 +18,7 @@ const GroupDetails = ({ group, owner }) => (
         <EventList events={group.events} />
         <Button
           block
-          onPress={() => Actions.createEvent({ owner, group })}
+          onPress={() => Actions.createEvent({ type: 'push', owner, group })}
         >
           Create Event
         </Button>

@@ -3,6 +3,7 @@ const event = (state, action) => ({
   name: action.name,
   userId: action.userId,
   groupId: action.groupId,
+  description: action.description,
   date: action.date,
 });
 

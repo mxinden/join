@@ -8,10 +8,10 @@ const EventDetails = ({ event }) => (
       <Text>Name: {event.name}</Text>
     </View>
     <View>
-      <Text>Details: {event.details}</Text>
+      <Text>Description: {event.description}</Text>
     </View>
     <View>
-      <Text>Date: {event.date.toDateString()}</Text>
+      <Text>Date: {event.date}</Text>
     </View>
   </View>
 );

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Text } from 'react-native';
+import { Icon } from 'native-base';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import GroupList from './../scenes/group/group-list-container.js';
 import EventScene from './../scenes/event/event-scene-container.js';
@@ -10,11 +11,10 @@ import CreateGroup from './../scenes/group/create-group-container.js';
 import EventDetails from './../scenes/event/event-details-container.js';
 
 const TabIcon = props => (
-  <Text
-    style={{ color: props.selected ? 'red' : 'black' }}
-  >
-    {props.title}
-  </Text>
+  <Icon
+    style={{ color: props.selected ? 'black' : 'grey' }}
+    name={props.iconName}
+  />
 );
 
 TabIcon.propTypes = {
@@ -29,6 +29,7 @@ const RouterComponent = props => (
         <Scene
           key="groups"
           icon={TabIcon}
+          iconName="ios-contacts-outline"
           title="Groups"
         >
           <Scene
@@ -39,35 +40,37 @@ const RouterComponent = props => (
             getRightTitle={() => 'Create'}
             onRight={() => Actions.createGroup()}
           />
-          <Scene key="groupDetails" component={GroupDetails} title="Group Details" />
-          <Scene
-            key="createGroup"
-            component={CreateGroup}
-            title="Create Group"
-            getRightTitle={() => 'Save'}
-            onRight={() => {
-              props.handleSaveGroup();
-              Actions.groupList({ type: 'back' });
-            }}
-          />
         </Scene>
         <Scene
           key="events"
           icon={TabIcon}
           title="Events"
+          iconName="ios-calendar-outline"
         >
           <Scene key="eventList" component={EventScene} title="Event List" />
-          <Scene key="createEvent" component={CreateEvent} title="Create Event" />
-          <Scene key="eventDetails" component={EventDetails} title="Event Details" />
         </Scene>
         <Scene
           key="profileTab"
           icon={TabIcon}
           title="Profile"
+          iconName="ios-contact-outline"
         >
           <Scene key="profile" component={Profile} title="Profile" />
         </Scene>
       </Scene>
+      <Scene key="groupDetails" component={GroupDetails} title="Group Details" />
+      <Scene
+        key="createGroup"
+        component={CreateGroup}
+        title="Create Group"
+        getRightTitle={() => 'Save'}
+        onRight={() => {
+          props.handleSaveGroup();
+          Actions.groupList({ type: 'back' });
+        }}
+      />
+      <Scene key="eventDetails" component={EventDetails} title="Event Details" />
+      <Scene key="createEvent" component={CreateEvent} title="Create Event" />
     </Scene>
   </Router>
 );

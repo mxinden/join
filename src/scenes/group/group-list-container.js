@@ -7,7 +7,7 @@ const mapStateToProps = state => ({ groups: state.groups.all });
 
 const mapDispatchToProps = dispatch => ({ selectGroup: (groupId, title) => {
   dispatch(selectGroup(groupId));
-  Actions.groupDetails({ title });
+  Actions.groupDetails({ type: 'push', title });
 } });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroupList);
