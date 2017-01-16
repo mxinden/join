@@ -7,6 +7,7 @@ import CreateEvent from './../scenes/event/create-event-container.js';
 import GroupDetails from './../scenes/group/group-details-container.js';
 import Profile from './../scenes/profile-container.js';
 import CreateGroup from './../scenes/group/create-group-container.js';
+import EventDetails from './../scenes/event/event-details-container.js';
 
 const TabIcon = props => (
   <Text
@@ -57,6 +58,7 @@ const RouterComponent = props => (
         >
           <Scene key="eventList" component={EventScene} title="Event List" />
           <Scene key="createEvent" component={CreateEvent} title="Create Event" />
+          <Scene key="eventDetails" component={EventDetails} title="Event Details" />
         </Scene>
         <Scene
           key="profileTab"

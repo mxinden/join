@@ -1,22 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
 import { List, ListItem, Text, Icon } from 'native-base';
+import { Actions } from 'react-native-router-flux';
 
 const EventList = ({ events }) => (
-    <List>
-      {events.map(event => (
-        <ListItem key={event.id} iconLeft >
-          <Icon name="ios-calendar-outline" />
-          <Text>
-            {event.name}
-          </Text>
-          <Text>
-            {event.date}
-          </Text>
-        </ListItem>
-        ))
-      }
-    </List>
+  <List>
+    {events.map(event => (
+      <ListItem
+        key={event.id}
+        iconLeft
+        onPress={() => Actions.eventDetails({ event })}
+      >
+        <Icon name="ios-calendar-outline" />
+        <Text>
+          {event.name}
+        </Text>
+        <Text>
+          {event.date.toDateString()}
+        </Text>
+      </ListItem>
+      ))
+    }
+  </List>
 );
 
 EventList.propTypes = {

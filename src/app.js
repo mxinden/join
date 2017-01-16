@@ -17,7 +17,9 @@ const store = createStore(joinApp, {
     current: usersService.getCurrentUser(),
     all: usersService.get(),
   },
-  events: eventsService.get(),
+  events: {
+    all: eventsService.get(),
+  },
 }, applyMiddleware(thunk));
 
 
