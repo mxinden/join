@@ -9,6 +9,7 @@ const events = (state = [], action) => {
           name: action.name,
           userId: action.userId,
           groupId: action.groupId,
+          date: action.date,
         },
       ];
     default:

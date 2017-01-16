@@ -10,6 +10,9 @@ const EventList = ({ events }) => (
           <Text>
             {event.name}
           </Text>
+          <Text>
+            {event.date}
+          </Text>
         </ListItem>
         ))
       }
