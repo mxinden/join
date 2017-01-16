@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Container, Content, List, ListItem, InputGroup, Input, Button, Icon, Text } from 'native-base';
-import DatePicker from 'react-native-datepicker'
+import DatePicker from 'react-native-datepicker';
 
 class CreateEvent extends React.Component {
   constructor(props) {
@@ -40,6 +40,16 @@ class CreateEvent extends React.Component {
                 showIcon={false}
                 onDateChange={date => this.setState({ date })}
               />
+            </ListItem>
+            <ListItem >
+              <InputGroup>
+                <Icon name="ios-information-outline" />
+                <Input
+                  placeholder="Description"
+                  onChangeText={description => this.setState({ description })}
+                  multiline
+                />
+              </InputGroup>
             </ListItem>
           </List>
           <Button

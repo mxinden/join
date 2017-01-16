@@ -6,7 +6,7 @@ export const createGroup = (userId) => ({
 });
 
 export const saveNewGroup = (userId, name) => ({
-  type: 'SAVE_NEW_GROUP', 
+  type: 'SAVE_NEW_GROUP',
   name,
   userId,
 });
@@ -16,11 +16,12 @@ export const selectGroup = groupId => ({
   groupId,
 });
 
-export const createEvent = ({ name, userId, groupId, date }) => ({
+export const createEvent = ({ name, userId, groupId, date, description }) => ({
   type: 'CREATE_EVENT',
   id: (nextId++).toString(),
   name,
   userId,
   groupId,
   date,
+  description,
 });
