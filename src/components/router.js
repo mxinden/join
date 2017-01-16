@@ -23,8 +23,14 @@ TabIcon.propTypes = {
 };
 
 const RouterComponent = props => (
-  <Router>
-    <Scene key="root">
+  <Router
+      navigationBarStyle={{
+        backgroundColor: 'yellowgreen',
+      }}
+  >
+    <Scene
+      key="root"
+    >
       <Scene key="main" tabs>
         <Scene
           key="groups"
