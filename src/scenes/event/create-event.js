@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
-import { Container, Content, List, ListItem, InputGroup, Input, Button } from 'native-base';
+import { Container, Content, List, ListItem, InputGroup, Input, Button, Icon, Text } from 'native-base';
 
 class CreateEvent extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
-    this.state = { name: 'New Event' };
+    this.state = { name: 'New Event', userId: props.owner.id, groupId: props.group.id };
   }
 
   render() {
@@ -12,6 +12,14 @@ class CreateEvent extends React.Component {
       <Container style={{ paddingTop: 56 }} >
         <Content>
           <List>
+            <ListItem iconLeft >
+              <Icon name="ios-contact" />
+              <Text>{this.props.owner.name}</Text>
+            </ListItem>
+            <ListItem iconLeft >
+              <Icon name="ios-contacts-outline" />
+              <Text>{this.props.group.name}</Text>
+            </ListItem>
             <ListItem>
               <InputGroup>
                 <Input
@@ -25,7 +33,7 @@ class CreateEvent extends React.Component {
           </List>
           <Button
             block
-            onPress={() => this.props.handleCreate(this.state.name)}
+            onPress={() => this.props.handleCreate(this.state)}
           >
             Create
           </Button>

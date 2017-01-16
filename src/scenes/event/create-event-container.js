@@ -5,8 +5,8 @@ import { Actions } from 'react-native-router-flux';
 
 const mapStateToProps = () => ({});
 
-const handleCreate = name => dispatch => {
-  dispatch(createEvent(name));
+const handleCreate = event => dispatch => {
+  dispatch(createEvent(event));
   Actions.groups();
 };
 

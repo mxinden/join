@@ -4,7 +4,12 @@ const events = (state = [], action) => {
     case 'CREATE_EVENT':
       return [
         ...state,
-        { id: action.id, name: action.name },
+        {
+          id: action.id,
+          name: action.name,
+          userId: action.userId,
+          groupId: action.groupId,
+        },
       ];
     default:
       return state;

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { View } from 'react-native';
-import { List, ListItem, Text } from 'native-base';
+import { List, ListItem, Text, Icon } from 'native-base';
 
 const GroupList = ({ groups, selectGroup }) => (
   <View style={{ paddingTop: 56 }} >
@@ -9,7 +9,9 @@ const GroupList = ({ groups, selectGroup }) => (
         <ListItem
           key={group.id}
           onPress={() => selectGroup(group.id, group.name)}
+          iconLeft
         >
+          <Icon name="ios-contacts-outline" />
           <Text>{group.name}</Text>
         </ListItem>
         ))

@@ -16,8 +16,10 @@ export const selectGroup = groupId => ({
   groupId,
 });
 
-export const createEvent = name => ({
+export const createEvent = ({ name, userId, groupId }) => ({
   type: 'CREATE_EVENT',
   id: (nextId++).toString(),
   name,
+  userId,
+  groupId,
 });
