@@ -1,26 +1,39 @@
 import React, { PropTypes } from 'react';
-import { Text, Container, Content, List, ListItem, InputGroup, Input } from 'native-base';
+import { Button, Text, Container, Content, List, ListItem, InputGroup, Input } from 'native-base';
 
-const CreateGroup = props => (
-  <Container style={{ paddingTop: 56 }} >
-    <Content>
-      <List>
-        <ListItem>
-          <InputGroup>
-            <Input
-              inlineLabel
-              label="Name"
-              onChangeText={text => props.handleNameChange(props.currentUser.id, text)}
-            />
-          </InputGroup>
-        </ListItem>
-      </List>
-    </Content>
-  </Container>
-);
+class CreateGroup extends React.Component {
+  constructor () {
+    super();
+    this.state = { name: 'New Group' };
+  }
+  render () {
+    return (
+      <Container style={{ paddingTop: 56 }} >
+        <Content>
+          <List>
+            <ListItem>
+              <InputGroup>
+                <Input
+                  placeholder="Group name"
+                  onChangeText={name => this.setState({ name })}
+                />
+              </InputGroup>
+            </ListItem>
+          </List>
+          <Button
+            block
+            onPress={() => this.props.handleCreate({ name: this.state.name })}
+          >
+            Save
+          </Button>
+        </Content>
+      </Container>
+    );
+  }
+}
 
 CreateGroup.propTypes = {
-  handleNameChange: PropTypes.func.isRequired,
+  handleCreate: PropTypes.func,
   currentUser: PropTypes.shape({
     id: PropTypes.string.isRequired,
   }),

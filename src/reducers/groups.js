@@ -4,6 +4,8 @@ const group = (newGroup, action) => {
       return {
         ...newGroup,
         id: action.id,
+        name: action.name,
+        creatorId: action.creatorId
       };
     default:
       return state
@@ -16,16 +18,6 @@ const groups = (state = {}, action) => {
       return {
         ...state,
         all: state.all.concat([group(state.newGroup, action)]),
-        newGroup: undefined,
-      };
-    case 'SAVE_NEW_GROUP':
-      return {
-        ...state,
-        newGroup: {
-          ...state.newGroup,
-          name: action.name,
-          userId: action.userId,
-        },
       };
     case 'SELECT_GROUP':
       return {

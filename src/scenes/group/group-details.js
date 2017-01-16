@@ -4,21 +4,21 @@ import { View } from 'react-native';
 import EventList from '../../components/event-list.js';
 import { Text, H1, Container, Icon, List, ListItem, Button, Content } from 'native-base';
 
-const GroupDetails = ({ group, owner }) => (
+const GroupDetails = ({ group, creator, events }) => (
   <Container style={{ paddingTop: 56 }} >
     <Content>
       <List>
         <ListItem iconLeft >
           <Icon name="ios-contact" />
-          <Text>{owner.name}</Text>
+          <Text>{creator.name}</Text>
         </ListItem>
       </List>
       <View style={{ paddingTop: 20 }}>
         <H1>Events</H1>
-        <EventList events={group.events} />
+        <EventList events={events} />
         <Button
           block
-          onPress={() => Actions.createEvent({ type: 'push', owner, group })}
+          onPress={() => Actions.createEvent({ type: 'push', creator, group })}
         >
           Create Event
         </Button>
@@ -28,6 +28,9 @@ const GroupDetails = ({ group, owner }) => (
 );
 
 GroupDetails.propTypes = {
+  group: PropTypes.object,
+  events: PropTypes.array,
+  creator: PropTypes.object,
 };
 
 export default GroupDetails;

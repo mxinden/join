@@ -43,8 +43,6 @@ const RouterComponent = props => (
             component={GroupList}
             title="Group List"
             initial
-            getRightTitle={() => 'Create'}
-            onRight={() => Actions.createGroup()}
           />
         </Scene>
         <Scene
@@ -69,11 +67,6 @@ const RouterComponent = props => (
         key="createGroup"
         component={CreateGroup}
         title="Create Group"
-        getRightTitle={() => 'Save'}
-        onRight={() => {
-          props.handleSaveGroup();
-          Actions.groupList({ type: 'back' });
-        }}
       />
       <Scene key="eventDetails" component={EventDetails} title="Event Details" />
       <Scene key="createEvent" component={CreateEvent} title="Create Event" />

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { View } from 'react-native';
-import { List, ListItem, Text, Icon } from 'native-base';
+import { List, ListItem, Text, Icon, Button } from 'native-base';
+import { Actions } from 'react-native-router-flux';
 
 const GroupList = ({ groups, selectGroup }) => (
   <View style={{ paddingTop: 56 }} >
@@ -17,6 +18,12 @@ const GroupList = ({ groups, selectGroup }) => (
         ))
       }
     </List>
+    <Button
+      block
+      onPress={() => Actions.createGroup({ type: 'push' })}
+    >
+      Create Group
+    </Button>
   </View>
 );
 

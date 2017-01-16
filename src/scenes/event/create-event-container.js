@@ -7,7 +7,7 @@ const mapStateToProps = () => ({});
 
 const handleCreate = event => dispatch => {
   dispatch(createEvent(event));
-  Actions.pop();
+  Actions.pop({ type: 'refresh' });
 };
 
 export default connect(mapStateToProps, { handleCreate })(CreateEvent);

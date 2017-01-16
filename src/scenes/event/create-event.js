@@ -5,7 +5,7 @@ import DatePicker from 'react-native-datepicker';
 class CreateEvent extends React.Component {
   constructor(props) {
     super();
-    this.state = { name: 'New Event', userId: props.owner.id, groupId: props.group.id };
+    this.state = { name: 'New Event', userId: props.creator.id, groupId: props.group.id };
   }
 
   render() {
@@ -15,7 +15,7 @@ class CreateEvent extends React.Component {
           <List>
             <ListItem iconLeft >
               <Icon name="ios-contact" />
-              <Text>{this.props.owner.name}</Text>
+              <Text>{this.props.creator.name}</Text>
             </ListItem>
             <ListItem iconLeft >
               <Icon name="ios-contacts-outline" />
