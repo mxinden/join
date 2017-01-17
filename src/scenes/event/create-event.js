@@ -6,7 +6,7 @@ import PaddedView from '../../components/padded-view.js';
 class CreateEvent extends React.Component {
   constructor(props) {
     super();
-    this.state = { name: 'New Event', userId: props.creator.id, groupId: props.group.id };
+    this.state = { name: 'New Event', userId: props.creator.id, groupId: props.group.id, date: new Date() };
   }
 
   render() {
@@ -34,7 +34,7 @@ class CreateEvent extends React.Component {
               <Icon name="ios-time-outline" />
               <DatePicker
                 style={{ width: 200 }}
-                date={new Date()}
+                date={this.state.date}
                 mode="datetime"
                 placeholder="Select date"
                 format="DD.MM.YYYY h:mm:ss a"
