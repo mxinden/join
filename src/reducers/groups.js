@@ -5,7 +5,8 @@ const createGroup = (newGroup, action) => {
         ...newGroup,
         id: action.id,
         name: action.name,
-        creatorId: action.creatorId
+        creatorId: action.creatorId,
+        memberIds: [action.creatorId],
       };
     default:
       return state
